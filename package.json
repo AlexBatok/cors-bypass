@@ -1,0 +1,19 @@
+{
+  "name": "cors-pro",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "zip": "node build-zip.mjs"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "esbuild": "^0.24.0",
+    "sharp": "^0.34.5",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "puppeteer": "^24.38.0"
+  }
+}

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+extracted/
+*.zip
+
+# Internal / local-only
+.claude/
+planning/
+store-assets/
+_local/
+generate-icons.mjs
+generate-store-icon.mjs
+build-zip.mjs
+capture-small.mjs
+nul

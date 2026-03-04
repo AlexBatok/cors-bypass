@@ -1,0 +1,93 @@
+/* ── CORS Pro — Options styles ──────────────────────────────── */
+@import url('../lib/theme.css');
+
+body { font-size: 14px; line-height: 1.6; background: var(--bg-secondary); }
+
+.options { max-width: 600px; margin: 0 auto; padding: 32px 24px; }
+
+/* Header */
+.options__header { margin-bottom: 28px; }
+.options__brand { display: flex; align-items: center; gap: 12px; }
+.options__brand h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.options__brand img { border-radius: 6px; }
+
+/* Cards */
+.card {
+  background: var(--bg-primary); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 20px;
+  margin-bottom: 16px; box-shadow: var(--shadow);
+}
+.card__title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.card__desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; }
+.card__body { display: flex; flex-direction: column; gap: 10px; }
+.card__actions { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+
+/* Checkboxes */
+.checkbox {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  cursor: pointer; font-size: 13px; padding: 4px 0;
+}
+.checkbox input[type="checkbox"] {
+  width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer;
+}
+.checkbox__hint {
+  font-size: 11px; color: var(--text-tertiary); flex-basis: 100%;
+  margin-left: 26px; margin-top: -4px;
+}
+
+/* Input row */
+.input-row { display: flex; gap: 8px; }
+.input {
+  flex: 1; padding: 8px 12px; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); font-family: var(--font); font-size: 13px;
+  color: var(--text-primary); background: var(--bg-secondary);
+  outline: none; transition: border-color 0.15s;
+}
+.input:focus { border-color: var(--accent); }
+
+/* Buttons */
+.btn {
+  padding: 8px 16px; border: none; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.15s ease; white-space: nowrap;
+}
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-hover); }
+.btn--secondary {
+  background: var(--bg-secondary); color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+.btn--secondary:hover { background: var(--bg-hover); }
+.btn--danger { background: var(--danger-subtle); color: var(--danger); }
+.btn--danger:hover { background: var(--danger); color: #fff; }
+
+/* Domain list */
+.domain-list { list-style: none; }
+.domain-list__item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 8px; border-radius: var(--radius-sm); transition: background 0.1s;
+}
+.domain-list__item:hover { background: var(--bg-hover); }
+.domain-list__item span { font-size: 13px; }
+.domain-list__remove {
+  font-size: 14px; color: var(--text-tertiary); background: none;
+  border: none; cursor: pointer; width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+}
+.domain-list__remove:hover { background: var(--danger-subtle); color: var(--danger); }
+.domain-list__empty {
+  font-size: 12px; color: var(--text-tertiary); text-align: center; padding: 8px 0;
+}
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--text-primary); color: var(--bg-primary);
+  padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}

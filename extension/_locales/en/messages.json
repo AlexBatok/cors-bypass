@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "CORS Bypass — Per-Site CORS Unblock",
+    "description": "Extension name shown in Chrome Web Store and browser"
+  },
+  "extDescription": {
+    "message": "Bypass CORS errors per-site with one click. Zero CPU overhead, won't break YouTube. Built for developers.",
+    "description": "Extension description for Chrome Web Store"
+  }
+}

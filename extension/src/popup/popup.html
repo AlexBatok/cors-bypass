@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css">
+  <title>CORS Bypass</title>
+</head>
+<body>
+  <div class="popup">
+    <!-- Header -->
+    <header class="header">
+      <div class="header__brand">
+        <img src="/icons/icon-active-32.png" alt="" class="header__icon" width="20" height="20">
+        <span class="header__title">CORS Bypass</span>
+      </div>
+      <span class="header__version" id="version"></span>
+    </header>
+
+    <!-- Current domain section -->
+    <section class="current-domain" id="currentDomain">
+      <div class="current-domain__info">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="current-domain__hostname" id="hostname">—</span>
+      </div>
+      <button class="toggle-btn" id="toggleBtn" disabled>
+        <span class="toggle-btn__label" id="toggleLabel">Enable</span>
+      </button>
+    </section>
+
+    <!-- Blocked domain warning (hidden by default) -->
+    <section class="warning" id="warning" hidden>
+      <p class="warning__text" id="warningText"></p>
+      <button class="warning__override" id="overrideBtn">Enable anyway</button>
+    </section>
+
+    <!-- Debug info -->
+    <section class="debug" id="debugSection">
+      <button class="debug__toggle" id="debugToggle">
+        <span>Modified requests</span>
+        <span class="debug__badge" id="matchedCount">0</span>
+      </button>
+      <div class="debug__details" id="debugDetails" hidden>
+        <p class="debug__empty">No matched rules in this session.</p>
+      </div>
+    </section>
+
+    <!-- Active domains list -->
+    <section class="domains" id="domainsSection">
+      <div class="domains__header">
+        <span class="domains__title">Active domains</span>
+        <button class="domains__clear" id="disableAllBtn" hidden>Disable all</button>
+      </div>
+      <ul class="domains__list" id="domainsList"></ul>
+      <p class="domains__empty" id="domainsEmpty">
+        No domains active. Click the toggle to enable CORS for the current site.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="#" id="optionsLink" class="footer__link">Settings</a>
+    </footer>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

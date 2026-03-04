@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="options.css">
+  <title>CORS Bypass — Settings</title>
+</head>
+<body>
+  <div class="options">
+    <header class="options__header">
+      <div class="options__brand">
+        <img src="/icons/icon-active-48.png" alt="" width="28" height="28">
+        <h1>CORS Bypass Settings</h1>
+      </div>
+    </header>
+
+    <main class="options__main">
+      <!-- CORS Headers -->
+      <section class="card">
+        <h2 class="card__title">CORS Response Headers</h2>
+        <p class="card__desc">Choose which headers to inject on enabled domains.</p>
+        <div class="card__body">
+          <label class="checkbox">
+            <input type="checkbox" id="headerOrigin" checked>
+            <span>Access-Control-Allow-Origin</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="headerMethods" checked>
+            <span>Access-Control-Allow-Methods</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="headerHeaders" checked>
+            <span>Access-Control-Allow-Headers</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="headerCredentials" checked>
+            <span>Access-Control-Allow-Credentials</span>
+            <small class="checkbox__hint">Note: won't work with Origin: * (browser spec limitation)</small>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="headerExpose" checked>
+            <span>Access-Control-Expose-Headers</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Protection List -->
+      <section class="card">
+        <h2 class="card__title">Domain Protection List</h2>
+        <p class="card__desc">
+          Domains on this list require confirmation before CORS is enabled.
+          Built-in defaults protect Google, YouTube, etc.
+        </p>
+        <div class="card__body">
+          <div class="input-row">
+            <input type="text" id="newDomain" class="input" placeholder="e.g. example.com">
+            <button id="addDomainBtn" class="btn btn--primary">Add</button>
+          </div>
+          <ul class="domain-list" id="customBlocklist"></ul>
+          <p class="domain-list__empty" id="blocklistEmpty">
+            No custom domains. Built-in defaults are always active.
+          </p>
+        </div>
+      </section>
+
+      <!-- Export / Import -->
+      <section class="card">
+        <h2 class="card__title">Data</h2>
+        <p class="card__desc">Export or import your settings as JSON.</p>
+        <div class="card__body card__actions">
+          <button id="exportBtn" class="btn btn--secondary">Export settings</button>
+          <button id="importBtn" class="btn btn--secondary">Import settings</button>
+          <input type="file" id="importFile" accept=".json" hidden>
+          <button id="resetBtn" class="btn btn--danger">Reset to defaults</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" hidden>
+      <span id="toastText"></span>
+    </div>
+  </div>
+
+  <script src="options.js" type="module"></script>
+</body>
+</html>
