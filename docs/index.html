@@ -2,10 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=privacy-policy">
-  <title>CORS Bypass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORS Bypass — Chrome Extension</title>
+  <meta name="description" content="Bypass CORS restrictions per-domain with one click. Lightweight Chrome extension for web developers. No data collection.">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#fafafa;--card:#fff;--text:#1a1a2e;--muted:#64748b;--accent:#10b981;--border:#e2e8f0;--radius:10px}
+    @media(prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--accent:#34d399;--border:#334155}}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    .container{max-width:600px;margin:0 auto;padding:60px 24px}
+    h1{font-size:28px;font-weight:700;margin-bottom:8px}
+    p{color:var(--muted);margin-bottom:16px}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .links{display:flex;gap:20px;margin-bottom:48px}
+    .donate{text-align:center;padding-top:32px;border-top:1px solid var(--border)}
+    .donate h2{font-size:20px;font-weight:600;margin-bottom:4px}
+    .crypto-row{display:flex;align-items:center;gap:10px;padding:10px 14px;margin-top:8px;background:var(--card);border:1px solid var(--border);border-radius:8px}
+    .crypto-label{font-weight:700;font-size:12px;color:var(--accent);min-width:32px}
+    .crypto-row code{font-size:11px;word-break:break-all;color:var(--muted);flex:1}
+    .crypto-copy{border:none;background:transparent;font-size:15px;cursor:pointer;padding:2px 6px;border-radius:6px;color:var(--muted);transition:background .15s}
+    .crypto-copy:hover{background:var(--border)}
+  </style>
 </head>
 <body>
-  <p><a href="privacy-policy">Privacy Policy</a></p>
+  <div class="container">
+    <h1>CORS Bypass</h1>
+    <p>Lightweight Chrome extension that bypasses CORS restrictions per-domain with one click. Built for web developers. No data collection, minimal permissions.</p>
+    <div class="links">
+      <a href="privacy-policy">Privacy Policy</a>
+      <a href="https://github.com/AlexBatok/cors-bypass" target="_blank">GitHub</a>
+    </div>
+
+    <section id="donate" class="donate">
+      <h2>Support Development</h2>
+      <p>If you find this extension useful, consider supporting its development.</p>
+      <div class="crypto-row">
+        <span class="crypto-label">ETH</span>
+        <code>0x7587ce32665485cf9397e22220b586913922f0e8</code>
+        <button class="crypto-copy" data-addr="0x7587ce32665485cf9397e22220b586913922f0e8" title="Copy">&#128203;</button>
+      </div>
+      <div class="crypto-row">
+        <span class="crypto-label">BTC</span>
+        <code>bc1pmy28yzghs8xmp7pf8flaqyswkg6eurx32f9fjuguc9ggmzrw3vmqkg04xf</code>
+        <button class="crypto-copy" data-addr="bc1pmy28yzghs8xmp7pf8flaqyswkg6eurx32f9fjuguc9ggmzrw3vmqkg04xf" title="Copy">&#128203;</button>
+      </div>
+    </section>
+  </div>
+  <script>
+  document.querySelectorAll('.crypto-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(btn.getAttribute('data-addr')).then(() => {
+        btn.textContent = '✓';
+        setTimeout(() => { btn.innerHTML = '&#128203;'; }, 2000);
+      });
+    });
+  });
+  </script>
 </body>
 </html>

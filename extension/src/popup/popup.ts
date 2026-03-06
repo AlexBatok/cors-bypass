@@ -169,5 +169,15 @@ function sendMessage(message: unknown): Promise<any> {
   return chrome.runtime.sendMessage(message);
 }
 
+// ── Footer links ────────────────────────────────────────────────
+$('link-rate').addEventListener('click', (e) => {
+  e.preventDefault();
+  chrome.tabs.create({ url: `https://chromewebstore.google.com/detail/${chrome.runtime.id}/reviews` });
+});
+$('link-coffee').addEventListener('click', (e) => {
+  e.preventDefault();
+  chrome.tabs.create({ url: 'https://alexbatok.github.io/cors-bypass/#donate' });
+});
+
 // ── Start ───────────────────────────────────────────────────────
 init().catch(console.error);
